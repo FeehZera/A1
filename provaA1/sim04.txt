@@ -1,0 +1,13 @@
+S	->	bE
+F	->	aC
+E	->	bF
+D	->	
+D	->	bA
+E	->	aC
+B	->	bA
+S	->	aB
+C	->	bA
+F	->	bD
+B	->	aC
+C	->	aD
+D	->	aC

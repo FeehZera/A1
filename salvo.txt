@@ -1,0 +1,82 @@
+1. (0,75 pontos)  Desenvolvimento de um AFD
+
+      Considere o alfabeto Σ = {a, b}. Projete um autômato finito determinístico (AFD) que reconheça a linguagem L de todas as palavras que começam com 'a' e têm um número par de 'b's.
+Aceitação: 
+- abb - aceita 
+- aababa - aceita 
+- abba - aceita
+- aba - não aceita 
+- babbaa - não aceita
+
+Enviar o arquivo nomeado como sim01.jff gerado pelo JFLAP7.1.jar para avaliação
+
+2. (0,75 pontos) Desenvolvimento de um AFN
+
+     Agora, considere o alfabeto Σ = {0, 1}. Projete um autômato finito não determinístico (AFN) que reconheça a linguagem L de todas as palavras que contêm a subcadeia '101' em algum lugar.
+Aceitação: 
+- 101 - aceita 
+- 01011 - aceita 
+- 0010100 - aceita 
+- 000111 - não aceita 
+- 00110011 - não aceita
+
+Enviar o arquivo nomeado como sim02.jff gerado pelo JFLAP7.1.jar para avaliação
+
+3. (0,75 pontos) Desenvolvimento de um AFN-ε
+
+Para esta questão, suponha que o alfabeto seja Σ = {a, b}. Projete um autômato finito não determinístico com movimento vazio (AFN-ε) que reconheça a linguagem L de todas as palavras que têm um número ímpar de 'a's.
+Aceitação: 
+- a - aceita
+- aaa - aceita
+- ababab - aceita
+- bbbaaa - aceita
+- ababb - não aceita 
+- bbbaa - não aceita
+
+Enviar o arquivo nomeado como sim03.jff gerado pelo JFLAP7.1.jar para avaliação
+
+4. (0,75 pontos) Transforme o AFD da linguagem {w ε {a,b}* | w tem tamanho múltiplo de 3 e não contém ab} desenvolvido anteriormente em uma gramática regular a direita (GLUD)
+// aaa bbb aba bba aab
+// bba bbb
+
+Enviar identificado como sim04
+
+5. (0,25 pontos) Expressão regular para reconhecer sequências de caracteres repetidos (por exemplo, "aaa", "bbb", etc.):
+Exemplos de letras repetidas: aaa, bbb, cccc, etc.
+
+Enviar identificado como sim05
+
+6. (0,25 pontos) Expressão regular para localizar números decimais com até 4 dígitos na parte inteira e parte decimal:
+Aqui estão alguns números: 3.18, 1.13, 123.4567, 7.85 e 12345.6789.
+
+Enviar identificado como sim06
+
+7. (0,25 pontos) Expressão regular para reconhecer sequências que iniciam com 'abc' e terminam com 'xyz', podendo haver qualquer caractere entre eles:
+Algumas sequências: abc123xyz, abcDEFGxyz, abc_123-xyz e abc123\nxyz.
+
+Enviar identificado como sim07
+
+8. (0,25 pontos) Expressão regular encontrar todas as palavras que começam com "a" ou "b":
+Exemplos de palavras: abacaxi, bola, banana e avião.
+
+Enviar identificado como sim08
+
+9. (2 pontos) Analisador Léxico - Classificar palavras como LETRA ou DIGITO
+
+Crie um analisador léxico com o JFlex que:
+- Se encontrar apenas letras (a-z, A-Z), imprima: Palavra: LETRAS
+- Se encontrar apenas dígitos (0-9), imprima: Palavra: DIGITOS
+- Se misturar letras e dígitos ou caracteres especiais, ignore.
+
+Enviar o arquivo nomeado como sim09.flex para avaliação
+
+10. (2 pontos) Analisador Léxico e Sintático  - Classificar palavras como LETRA ou DIGITO
+
+Crie um analisador que usa JFlex e JCup.  
+- Se reconhecer uma sequência de somente letras (`a-z` ou `A-Z`), classifique como `Palavra: LETRAS`.
+- Se reconhecer uma sequência de somente dígitos (`0-9`), classifique como `Palavra: DIGITOS`.
+- Se misturar letras e dígitos, ou tiver outros caracteres, ignore (não processe).
+
+Use o JFlex para gerar os tokens e o JCup para interpretar e imprimir as mensagens.
+
+Enviar os arquivos nomeados como sim10.flex, sim10.cup e o Main.java

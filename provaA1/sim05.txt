@@ -1,0 +1,9 @@
+A	->	aA
+B	->	bB
+S	->	aA
+C	->	cC
+S	->	bB
+C	->	Lambda
+S	->	cC
+B	->	Lambda
+A	->	Lambda
