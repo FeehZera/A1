@@ -1,0 +1,17 @@
+// Definições iniciais
+import java_cup.runtime.*;
+
+// Definição de tokens terminais
+terminal LETRAS, DIGITOS;
+
+// Não-terminals
+non terminal sequencia, lista_itens, item;
+
+// Produções
+sequencia   ::= lista_itens;
+
+lista_itens ::= lista_itens item
+              | item;
+
+item        ::= LETRAS
+              | DIGITOS;

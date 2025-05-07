@@ -1,0 +1,175 @@
+1. (0,75 pontos)  Desenvolvimento de um AFD
+
+      Considere o alfabeto Σ = {a, b}. Projete um autômato finito determinístico (AFD) que reconheça a linguagem L de todas as palavras que começam com 'a' e têm um número par de 'b's.
+Aceitação: 
+- abb - aceita 
+- aababa - aceita 
+- abba - aceita
+- aba - não aceita 
+- babbaa - não aceita
+
+Solução: sim01_AFD.jff
+
+Enviar o arquivo nomeado como sim01.jff gerado pelo JFLAP7.1.jar para avaliação
+
+2. (0,75 pontos) Desenvolvimento de um AFN
+
+     Agora, considere o alfabeto Σ = {0, 1}. Projete um autômato finito não determinístico (AFN) que reconheça a linguagem L de todas as palavras que contêm a subcadeia '101' em algum lugar.
+Aceitação: 
+- 101 - aceita 
+- 01011 - aceita 
+- 0010100 - aceita 
+- 000111 - não aceita 
+- 00110011 - não aceita
+
+Solução: sim02_AFN.jff
+
+Enviar o arquivo nomeado como sim02.jff gerado pelo JFLAP7.1.jar para avaliação
+
+3. (0,75 pontos) Desenvolvimento de um AFN-ε
+
+Para esta questão, suponha que o alfabeto seja Σ = {a, b}. Projete um autômato finito não determinístico com movimento vazio (AFN-ε) que reconheça a linguagem L de todas as palavras que têm um número ímpar de 'a's.
+Aceitação: 
+- a - aceita
+- aaa - aceita
+- ababab - aceita
+- bbbaaa - aceita
+- ababb - não aceita 
+- bbbaa - não aceita
+
+Solução: sim03_AFN.jff
+
+Enviar o arquivo nomeado como sim03.jff gerado pelo JFLAP7.1.jar para avaliação
+
+4. (0,75 pontos) Transforme o AFD da linguagem {w ε {a,b}* | w tem tamanho múltiplo de 3 e não contém ab} em uma gramática regular a direita (GLUD):
+
+Aceita: aaa, bbb, bbbaaa e baa
+Rejeita: abb, bbbabb e bababa
+
+Solução :
+
+-> Parte de envio obrigatóri: 
+q0  → aq1 | bq2 | ε  
+q1  → aq3  
+q2  → aq3 | bq4  
+q3  → aq0  
+q4  → aq0 | bq0
+
+-> Parte de envio opcional: sim04_GLUD.jff
+
+Deve enviar a gramática regular a direita (GLUD) e pode enviar também o arquivo nomeado como sim04.jff gerado pelo JFLAP7.1.jar para validar o GLUD
+
+Enviar identificado como sim04
+
+5. (0,25 pontos) Expressão regular para reconhecer sequências de caracteres repetidos (por exemplo, "aaa", "bbb", etc.):
+Exemplos de letras repetidas: aaa, bbb, cccc, etc.
+
+Solução: ^(.)\1+$
+
+Explicação:
+^    - início da string
+(.)  - captura qualquer caractere único (letra, número, símbolo)
+\1+ - repete o mesmo caractere capturado pelo primeiro grupo uma ou mais vezes
+$    - fim da string
+
+Enviar identificado como sim05
+
+6. (0,25 pontos) Expressão regular para localizar números decimais com até 4 dígitos na parte inteira e parte decimal:
+Aqui estão alguns números: 3.18, 1.13, 123.4567, 7.85 e 12345.6789.
+
+Solução: \b\d{1,4}\.\d{1,4}\b
+
+Explicação:
+\b         - delimita uma fronteira de palavra (evita capturar dentro de palavras)
+\d{1,4} - de 1 a 4 dígitos na parte inteira
+\.          - o ponto decimal (precisa ser escapado com \)
+\d{1,4} - de 1 a 4 dígitos na parte decimal
+\b         - fim da palavra
+
+Enviar identificado como sim06
+
+7. (0,25 pontos) Expressão regular para reconhecer sequências que iniciam com 'abc' e terminam com 'xyz', podendo haver qualquer caractere entre eles:
+Algumas sequências: abc123xyz, abcDEFGxyz, abc_123-xyz e abc123\nxyz.
+
+Solução: abc[\s\S]*?xyz
+
+Explicação:
+abc    - Casa literalmente os caracteres a, b, e c nessa ordem.
+[\s\S]  - Casa qualquer caractere, incluindo quebras de linha.
+           - Algumas considerações:
+             . (ponto) não casa com \n (quebra de linha), a menos que o modo "dotall" esteja ativado ((?s)).
+             \s - casa com qualquer caractere de espaço em branco, como espaço, tab, \n, \r
+             \S - casa com qualquer caractere que não é espaço em branco
+             Juntos, [\s\S] casa qualquer caractere, sem exceção.
+*?       -  O * significa: zero ou mais vezes. O ? após o * torna essa repetição não-gulosa (ou "lazy").
+              Regex normal (gulosa): tenta casar o máximo possível.
+              Regex não-gulosa: tenta casar o mínimo possível enquanto ainda atende à expressão completa.
+              Isso é importante para garantir que ele pare no primeiro xyz após abc, e não no último (especialmente se houver múltiplas ocorrências).
+xyz     - Casa literalmente com os caracteres x, y, e z.
+
+Enviar identificado como sim07
+
+8. (0,25 pontos) Expressão regular encontrar todas as palavras que começam com "a" ou "b":
+Exemplos de palavras: abacaxi, bola, banana e avião.
+
+Solução: \b[abAB]\w*
+
+Explicação:
+\b         - fronteira de palavra, garante que a correspondência começa no início de uma palavra
+[abAB] - casa com "a" ou "b", maiúsculas ou minúsculas
+\w*      - casa com zero ou mais caracteres de palavra (letras, números ou _)
+
+Enviar identificado como sim08
+
+9. (2 pontos) Analisador Léxico - Classificar palavras como LETRA ou DIGITO
+
+Crie um analisador léxico com o JFlex que:
+- Se encontrar apenas letras (a-z, A-Z), imprima: Palavra: LETRAS
+- Se encontrar apenas dígitos (0-9), imprima: Palavra: DIGITOS
+- Se misturar letras e dígitos ou caracteres especiais, ignore.
+
+Solução:
+
+- Análise Léxica: sim09.flex 
+- Arquivo Teste: sim09.txt
+
+Comando para rodar: 
+jflex sim09.flex -> gera o analisador léxico Sim09.java
+javac Sim09.java -> compila o Sim09.java gerando Sim09.class
+java Sim09 sim09.txt -> valida o sim09.txt pelo analisador léxico Sim09.class
+
+Enviar o arquivo nomeado como sim09.flex para avaliação
+
+10. (2 pontos) Analisador Léxico e Sintático  - Classificar palavras como LETRA ou DIGITO
+
+Crie um analisador que usa JFlex e JCup.  
+- Se reconhecer uma sequência de somente letras (`a-z` ou `A-Z`), classifique como `Palavra: LETRAS`.
+- Se reconhecer uma sequência de somente dígitos (`0-9`), classifique como `Palavra: DIGITOS`.
+- Se misturar letras e dígitos, ou tiver outros caracteres, ignore (não processe).
+
+Use o JFlex para gerar os tokens e o JCup para interpretar e imprimir as mensagens.
+
+Enviar os arquivos nomeados como sim10.flex, sim10.cup e o Main.java
+
+Solução:
+
+- Análise Léxica: sim10.flex
+- Análise Sintática: sim10.cup
+- Programa Principal para Teste: Main.java
+
+Como compilar e rodar:
+
+# Gere o Lexer
+jflex sim10.flex
+
+# Gere o Parser
+java java_cup.Main sim10.cup
+
+# Compile tudo
+javac *.java
+
+# Rode
+java Main
+
+- Para parar digite ^C 
+Última atualização: quinta-feira, 1 mai. 2025, 13:23
