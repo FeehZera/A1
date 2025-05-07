@@ -1,0 +1,105 @@
+Analise lexica -v
+Analise sintatica -v
+Analise semantica
+
++++ ANALISE LEXICA: TOKENS =========================================================================================
+
+///Token
+Tipo: KW_INT /KeyWord_int
+Lexema: int
+
+///Token
+Tipo: KW_WHILE /KeyWord_while
+Lexema: while
+
+///Token
+Tipo: IDENT / IDENTIFIER / IDENTIFICADOR
+Lexema: tempo
+
+///Token
+Tipo: IDENT / IDENTIFIER / IDENTIFICADOR
+Lexema: tempo
+<IDENT,"tempo">
+
+///Token
+Tipo: KW_CLASS
+Lexema: tempo
+<KW_CLASS,"class">
+<KW_CLASS>
+
+///Token
+Tipo: LEFTPAR
+Lexema: (
+<LEFTPAR,"(">
+<LEFTPAR>
+
++++ REGRAS DE PRODUCAO ================================================================================================
+P={
+N -> D
+N -> DN
+D -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9   
+}
+
+
++++ ARQUIVO.FLEX =======================================================================================================
+///PRECEDENCIA 
+1) Cadeia de caracteres mais longa
+
+2)Ordem do arquivo
+
+///REGRAS
+USAR MACROS SEMPRE DENTRO DE CHAVES: {LETRA}
+
+///LEGENDA DE SIMBOLOS
+
+{} = * zero ou muitas vezes
+() = + uma ou muitas vezes
+[] = ? zero ou uma vez
+
+^  -> caractere que o segue inicia o elemento
+$  -> caractere que o antecede finaliza o elemento
+.  -> caractere é um símbolo qualquer (exceto nova linha)
+|  -> enumerador de alternativas
+() -> agrupador
+[] -> especificador de classes
+* -> caractere ocorre 0 ou mais vezes
++  -> caractere ocorre 1 ou mais vezes
+?  -> caractere ocorre 1 ou 0 vezes
+{n} -> caractere ocorre exatamente "n" vezes
+{n,} -> caractere ocorre pelo menos "n" vezes
+{n,m} -> caractere ocorre pelo menos "n" vezes e não mais que "m" vezes
+
+///ESTRUTURA
+
+//codigo de usuario incluido
+Import (s)
+Import java_cup.runtime.Symbol
+
+%%
+
+//opcoes de declaracoes
+%standalone // lexico vai trabalhar sozinho sem o sintatico
+%cup //chama o jcup para fazer o parser e fazer a analise sintatica, deixando de ser sozinho %standalone
+%line // permite usar yyline
+%column // permite usar yycolumn
+%class scanner //renomeia o arquivo de yylex para outro que preferir ex.: scanner
+
+//MACROS
+letra->[A-Z][a-z]
+digito = [0-9]
+ident = letra(letra | digito)*
+
+%%
+
+//regras e acoes associadas
+a(a + b)* {System.out.print("comeca com a")}
+{ident} {return new Symbol(sym.IDENT,yytext());}
+
++++ ARQUIVO.CUP =============================================================================================
+
+import java_cup.runtime.*;
+
+terminal PTVIRG, MAIS, MENOS, INTEIRO;
+
+non terminal expr_list, expr_ptv, expr;
+

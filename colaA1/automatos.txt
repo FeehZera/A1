@@ -1,0 +1,100 @@
+Σ = alfabeto
+Σ* = tds palavras possiveis
+Σ+ = ocorre uma ou mais vezes
+
+∅ = conjunto vazio
+
++++ Gramatica De Chomsky ============================================================================================
+
+G=(V,T,P,S)
+
+G = gramatica
+V = conjuntos finito de simpolos VARIAVEIS ou NAO-TERMINAIS (LETRAS MAIUSCULAS )
+T = conjunto finito de simbolos, terminais (LETRAS MINUSCULAS )
+P = PRODUCOES
+S = elemento diferentre de V, VARIAVEL INICIAL
+
+V={N,D}
+T={0,1,2,3,4,5,6,7,8,9}
+P={
+N -> D
+N -> DN
+D -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9   
+}
+S = {N}
+
+| = significa OU,pode ser 0,1,2,3,4 etc...
+
+EX...
+
+numero 243 deriva
+
+N
+DN
+2N
+2DN
+24N
+24D
+243 = finalizou gramatica aceita...
+
++++ Hierarquia de Chomsky =========================================================================================
+
+tipo 0 
+tipo 1
+tipo 2
+tipo 3 = onde se faz os automatos (GRAMATICA REGULAR)
+
++++ FORMALISMO ====================================================================================================
+
+/// EXPRESSAO REGULAR (REGEX)
+a(b|c)*
+
+/// GRAMATICA REGULAR
+S → aA
+A → bA | cA | ε
+
+/// AUTOMATO FINITO
+Determinístico (AFD)
+Não determinístico (AFN ou AFN-ε)
+
++++ Definicao formal de um AFD ====================================================================================
+
+M=(Q,Σ,δ,q0​,F)
+
+Q	Conjunto finito de estados
+Σ	Alfabeto de entrada (símbolos que o autômato reconhece)
+δ	Função de transição: δ:Q×Σ→Q
+q0	Estado inicial: q0∈Q
+F	Conjunto de estados finais: F⊆QF⊆Q
+
+EXEMPLO:
+
+M=({q0​,q1​},{a,b},δ,q0​,{q1​})
+
++++ Expressao regulares ===========================================================================================
+
+simbolos e siginificados 
+
++ = OU / UMA OU MAIS VEZES 
+* = ZERO OU MUITAS VEZES
+| = OU
+
+EX.:
+(a+b)aa = comeca com a ou b e termina com aa
+ab*a = comeca com a tem zero ou muitos b e termina com a
+(ab)*a = comeca com ab zero ou muitas vezes e termina com a
+(a+b)*b = comeca com a ou b zero ou muitas vezes e termina com b
+b+(a+b)b+ = comeca com um ou mais b, seguido por um a ou b, seguido por um ou varios b
+
+a*(b+c) = comeca com zero ou muitos a e termina com b ou c
+a*b+c = comeca com zero ou muitos a, seguido de um b, ou somente um c
+
+(a+ε)(b+ba)* = Começa com 'a' ou nada, seguida de zero ou mais repetições de 'b' ou 'ba'
+
+///PRECEDENCIA DE OPERADORES
+-CONCATENACAO SUCESSIVA
+-CONCATENACAO
+-UNIAO
+
+
+

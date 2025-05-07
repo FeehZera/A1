@@ -1,0 +1,112 @@
+1-busca
+2-validacao
+3-Substituicoes
+
++++ Exemplos REGEX ==============================================================================
+🧭 Âncoras
+
+    ^ – Início da string
+    $ – Fim da string
+    \b – Fronteira de palavra
+    \B – Não-fronteira de palavra
+    \A – Início absoluto da string
+    \Z – Fim da string (antes do newline final)
+    \z – Fim absoluto da string
+    \G – Ponto onde a última pesquisa terminou
+
+🔢 Quantificadores
+
+    * – 0 ou mais
+    + – 1 ou mais
+    ? – 0 ou 1
+    {n} – exatamente n vezes
+    {n,} – pelo menos n vezes
+    {n,m} – entre n e m vezes
+    Quantificadores não-gulosos: *?, +?, ??, {n,m}?
+
+🔤 Classes de Caracteres
+
+    . – Qualquer caractere (exceto newline por padrão)
+    . – Qualquer caractere exceto \n, a menos que a flag s (dotall) esteja ativada 
+
+    \d – Dígito (equivale a [0-9])
+    \D – Não dígito
+    \w – Palavra (letras, números, underscore(_) )
+    \W – Não-palavra
+    \s – Espaço em branco
+    \S – Não espaço
+    [abc] – Um de a, b ou c
+    [^abc] – Qualquer coisa exceto a, b ou c
+    [a-z] – Intervalo de letras
+    [0-9] – Dígitos
+
+🎯 Grupos e Captura
+
+    (abc) – Grupo de captura
+    (?:abc) – Grupo sem captura
+    (?<name>abc) – Grupo nomeado
+    (?P<name>abc) – Grupo nomeado (Python)
+    \1, \2, ... – Retrovisores (backreferences)
+    (?|...) – Grupos duplicados (PCRE específico)
+    (?0) – Recomeça do início da regex (recursão no grupo 0)
+    (?R) – Recursão geral
+    (?n) – Recursão de grupo n
+
+👀 Lookaround (Antecipações e Retrospectivas)
+
+    (?=...) – Lookahead positivo
+    (?!...) – Lookahead negativo
+    (?<=...) – Lookbehind positivo
+    (?<!...) – Lookbehind negativo
+
+🧩 Operadores e Lógica
+
+    | – OU lógico
+    (...)|(...) – Alternância entre grupos
+    (?=...) – Lookahead positivo.
+    (?!...) – Lookahead negativo.
+    (?<=...) – Lookbehind positivo.
+    (?<!...) – Lookbehind negativo.
+
+🧹 Escape e Literais 
+
+    \. – Corresponde a um ponto literal .
+    \. – Corresponde a um ponto literal .
+    \n – Nova linha
+    \r – Retorno de carro
+    \t – Tabulação
+    \f – Form feed (avanço de formulário)
+    \v – Vertical tab
+    \x – Caractere hexadecimal (ex: \x41 para 'A')
+    \\ – Barra invertida literal
+    \xFF – Caractere hexadecimal
+    \uFFFF – Unicode (em alguns flavors)
+    \cX – Controle (ex: \cM para CR)
+    \0 – Nulo (caractere ASCII 0)
+
+🧪 Flags (modificadores globais ou inline)
+
+    g – global (todas as ocorrências)
+    i – case-insensitive
+    m – multiline (faz ^ e $ funcionarem por linha)
+    s – dotall (faz . casar com quebras de linha)
+    x – ignora espaços e comentários
+    u – unicode
+    (?i) – Ignora maiúsculas/minúsculas
+    (?m) – Multilinha
+    (?s) – Dotall
+    (?x) – Ignora espaços em branco
+    (?u) – Unicode
+
+📦 Outros Recursos Específicos
+
+    (*UTF8), (*UCP), (*CR) – Flags avançadas de PCRE
+    (?# comment) – Comentários inline
+    (*SKIP)(*F) – Pular correspondência (usado em filtros)
+
+✅ EXEMPLOS PRÁTICOS
+^\d{2}/\d{2}/\d{4}$   => datas como 12/05/2025
+^[A-Za-z0-9_]+$       => nome de usuário (sem espaços)
+\w+@\w+\.\w{2,}       => e-mail simples
+
+

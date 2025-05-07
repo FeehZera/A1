@@ -1,0 +1,25 @@
+// Importa a classe Scanner para integração
+import java_cup.runtime.*;
+
+parser code {:
+    public void report_error(String message, Object info) {
+        System.err.println("Erro de sintaxe: " + message);
+    }
+:};
+
+terminal PLUS, MINUS, TIMES, DIV, LPAREN, RPAREN;
+terminal Integer NUM;
+non terminal Integer expr;
+
+precedence left PLUS, MINUS;
+precedence left TIMES, DIV;
+
+start with expr;
+
+expr ::= expr:exp1 PLUS expr:exp2  {: RESULT = exp1 + exp2; :}
+       | expr:exp1 MINUS expr:exp2 {: RESULT = exp1 - exp2; :}
+       | expr:exp1 TIMES expr:exp2 {: RESULT = exp1 * exp2; :}
+       | expr:exp1 DIV expr:exp2   {: RESULT = exp1 / exp2; :}
+       | LPAREN expr:e RPAREN      {: RESULT = e; :}
+       | NUM:n                     {: RESULT = n; :}
+       ;
