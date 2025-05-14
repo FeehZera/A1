@@ -6,7 +6,7 @@
 
 ###
 
-<h3 align="center">Descrição do projeto:</h3>
+<h1 align="center">Descrição do projeto:</h1>
 
 ###
 
@@ -14,7 +14,7 @@
 
 ###
 
-<h3 align="center">Como executar:</h3>
+<h1 align="center">Como executar:</h1>
 
 ###
 
@@ -22,7 +22,7 @@
 
 ###
 
-<h3 align="center">Documentação do Projeto:</h3>
+<h1 align="center">Documentação do Projeto:</h1>
 
 ###
 
@@ -30,7 +30,7 @@
 
 ###
 
-<h3 align="center">Tecnologias Utilizadas no Projeto:</h3>
+<h1 align="center">Tecnologias Utilizadas no Projeto:</h1>
 
 ###
 
@@ -52,25 +52,25 @@
 
 ###
 
-<h3 align="left">Autores:</h3>
-<table>
+<h1 align="center">Autores:</h1>
+<table align="center">
   <tr>
     <td align="center">
       <a href="https://github.com/FeehZera">
         <img src="https://github.com/FeehZera.png" width="100px;" alt="FeehZera"/><br />
-        <sub><b>nome_do_usuario1</b></sub>
+        <sub><b>FeehZera</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/NicolasRamao">
         <img src="https://github.com/NicolasRamao.png" width="100px;" alt="NicolasRamao"/><br />
-        <sub><b>nome_do_usuario2</b></sub>
+        <sub><b>NicolasRamao</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/ezequielmdev">
         <img src="https://github.com/ezequielmdev.png" width="100px;" alt="ezequielmdev"/><br />
-        <sub><b>nome_do_usuario3</b></sub>
+        <sub><b>ezequielmdev</b></sub>
       </a>
     </td>
   </tr>
@@ -79,7 +79,7 @@
 
 ###
 
-<h3 align="left">Licença:</h3>
+<h1 align="center">Licença:</h1>
 
 ###
 
